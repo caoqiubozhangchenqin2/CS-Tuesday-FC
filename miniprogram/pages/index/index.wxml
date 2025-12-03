@@ -1,11 +1,11 @@
 <!-- pages/index/index.wxml -->
-<bg src="cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/shanghai port FC .png" overlayOpacity="0.3" blur="0" sizeMode="cover" repeat="false" />
+<bg src="cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/小红吉他.jpg" overlayOpacity="0.3" blur="0" sizeMode="cover" repeat="false" />
 <view class="container main-container">
 
-<!-- 上海海港队庆祝标题 -->
+<!-- 小红吉他夺冠标题 -->
 <view class="champion-banner">
-  <text class="champion-text">⚽ 中超荣耀 - 上海海港队 ⚽</text>
-  <text class="champion-subtitle">上海海港队夺得2025赛季中超冠军！</text>
+  <text class="champion-text">🏆 联赛冠军 - 小红吉他 🏆</text>
+  <text class="champion-subtitle">小红吉他提前一轮夺得联赛冠军！</text>
 </view>
 
 <!-- Part 1: 头部信息区 -->

@@ -1,5 +1,5 @@
 {
-  "name": "sendMatchReminders",
+  "name": "send-match-reminders",
   "version": "1.0.0",
   "description": "发送比赛开始提醒推送",
   "main": "index.js",
@@ -13,7 +13,7 @@
     {
       "name": "sendMatchReminders",
       "type": "timer",
-      "config": "0 */5 * * * * *"
+      "config": "*/5 * * * *"
     }
   ]
 }

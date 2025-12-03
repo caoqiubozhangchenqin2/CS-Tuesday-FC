@@ -38,6 +38,12 @@ Page({
     }
   },
 
+  // ✅ 添加 onShow 方法，每次显示页面时重新加载提醒状态
+  onShow() {
+    // 重新加载用户提醒设置，确保状态最新
+    this.loadUserReminders();
+  },
+
   // 设置当前月份显示
   setCurrentMonth() {
     const now = new Date();
@@ -334,24 +340,35 @@ Page({
       wx.hideLoading();
 
       if (result.result && result.result.success) {
+        // ✅ 改进：区分新设置和已存在的提醒
+        const message = result.result.alreadyExists 
+          ? '该比赛的提醒已设置'
+          : result.result.message;
+        
         wx.showToast({
-          title: result.result.message,
-          icon: 'success'
+          title: message,
+          icon: result.result.alreadyExists ? 'none' : 'success'
         });
 
-        // 更新本地提醒列表
-        let updatedReminders = [...this.data.userReminders];
-        updatedReminders.push({
-          matchId: matchId,
-          createdAt: new Date()
-        });
+        // 更新本地提醒列表（如果是新添加的）
+        if (!result.result.alreadyExists) {
+          let updatedReminders = [...this.data.userReminders];
+          updatedReminders.push({
+            matchId: matchId,
+            createdAt: new Date()
+          });
 
-        this.setData({
-          userReminders: updatedReminders
-        });
+          this.setData({
+            userReminders: updatedReminders
+          });
+        }
 
-        // 重新处理比赛数据以更新UI
-        const reminderMatchIds = updatedReminders.map(reminder => reminder.matchId);
+        // ✅ 无论是新设置还是已存在，都要更新UI状态
+        // 确保按钮显示为已设置状态（绿色）
+        const reminderMatchIds = this.data.userReminders
+          .map(reminder => reminder.matchId)
+          .concat([matchId]); // 确保当前matchId在列表中
+        
         const updatedMatches = this.data.matches.map(match => ({
           ...match,
           hasReminder: reminderMatchIds.includes(match.id.toString())
@@ -360,6 +377,8 @@ Page({
         this.setData({
           matches: updatedMatches
         });
+        
+        console.log('✅ UI已更新，比赛ID:', matchId, '已设置提醒');
 
       } else {
         wx.showToast({

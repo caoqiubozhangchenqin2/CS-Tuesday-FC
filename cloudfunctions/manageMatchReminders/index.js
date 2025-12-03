@@ -48,9 +48,33 @@ async function setReminder(userId, matchId) {
     .get();
 
   if (existingReminder.data && existingReminder.data.length > 0) {
+    // ✅ 改进：如果已存在且状态为 active，返回成功（幂等性）
+    const activeReminder = existingReminder.data.find(r => r.status === 'active');
+    
+    if (activeReminder) {
+      return {
+        success: true,
+        message: '该比赛的提醒已设置',
+        alreadyExists: true,
+        reminderId: activeReminder._id
+      };
+    }
+    
+    // 如果存在但已取消，可以重新激活
+    const cancelledReminder = existingReminder.data[0];
+    await db.collection('match_reminders')
+      .doc(cancelledReminder._id)
+      .update({
+        data: {
+          status: 'active',
+          reactivatedAt: new Date()
+        }
+      });
+    
     return {
-      success: false,
-      message: '该比赛的提醒已设置'
+      success: true,
+      message: '提醒重新激活成功',
+      reminderId: cancelledReminder._id
     };
   }
 
