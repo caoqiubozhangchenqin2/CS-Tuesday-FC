@@ -1,11 +1,11 @@
 <!-- pages/index/index.wxml -->
-<bg src="cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/小红吉他.jpg" overlayOpacity="0.3" blur="0" sizeMode="cover" repeat="false" />
+<bg src="cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/merry Christmas.png" overlayOpacity="0.3" blur="0" sizeMode="cover" repeat="false" />
 <view class="container main-container">
 
-<!-- 小红吉他夺冠标题 -->
+<!-- 圣诞节祝福横幅 -->
 <view class="champion-banner">
-  <text class="champion-text">🏆 联赛冠军 - 小红吉他 🏆</text>
-  <text class="champion-subtitle">小红吉他提前一轮夺得联赛冠军！</text>
+  <text class="champion-text">🎄 Merry Christmas 🎄</text>
+  <text class="champion-subtitle">圣诞快乐，愿你在新的一年里心想事成！</text>
 </view>
 
 <!-- Part 1: 头部信息区 -->
