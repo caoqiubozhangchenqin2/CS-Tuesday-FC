@@ -1,11 +1,11 @@
 <!-- pages/index/index.wxml -->
-<bg src="cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/merry Christmas.png" overlayOpacity="0.3" blur="0" sizeMode="cover" repeat="false" />
+<bg src="cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/世界杯.jpg" overlayOpacity="0.3" blur="0" sizeMode="cover" repeat="false" />
 <view class="container main-container">
 
-<!-- 圣诞节祝福横幅 -->
+<!-- 美加墨世界杯横幅 -->
 <view class="champion-banner">
-  <text class="champion-text">🎄 Merry Christmas 🎄</text>
-  <text class="champion-subtitle">圣诞快乐，愿你在新的一年里心想事成！</text>
+  <text class="champion-text">⚽ 2026美加墨世界杯 ⚽</text>
+  <text class="champion-subtitle">世界杯年，让我们一起为足球狂欢！</text>
 </view>
 
 <!-- Part 1: 头部信息区 -->
@@ -18,6 +18,10 @@
       <text class="sign-in-icon">📅</text>
       <text class="sign-in-text">每日签到</text>
     </button>
+    <!-- 提示语 - 移动到签到按钮正下方 -->
+    <view wx:if="{{userValue >= 50}}" class="notice-banner">
+      <text class="notice-text">📢 如遇到队名身价未正常显示，请点击最下面退出登录按钮重新登录</text>
+    </view>
   </block>
   <block wx:else>
     <image class="welcome-avatar" src="/images/avatar.png" mode="aspectFill"></image>

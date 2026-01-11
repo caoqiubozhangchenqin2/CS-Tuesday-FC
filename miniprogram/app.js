@@ -80,7 +80,7 @@ App({
     // 步骤 2: 从云存储获取音乐文件的临时链接
     // 注意：这里的 File ID 是您上传到云存储的音乐文件ID
     // 使用 mp3 格式以避免缓存问题（微信小程序推荐格式）
-        const BGM_FILE_ID = 'cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bgm/BoA - メリクリ (圣诞快乐).mp3';
+        const BGM_FILE_ID = 'cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bgm/周二的国王.mp3';
 
     wx.cloud.getTempFileURL({
       fileList: [BGM_FILE_ID],
@@ -92,8 +92,8 @@ App({
           this.globalData.musicUrl = musicUrl;
           
           // 设置音频管理器的属性
-          backgroundAudioManager.title = 'Merry Christmas'; // 音乐标题
-          backgroundAudioManager.singer = 'BoA'; // 歌手名
+          backgroundAudioManager.title = '周二的国王'; // 音乐标题
+          backgroundAudioManager.singer = '未知歌手'; // 歌手名
           backgroundAudioManager.coverImgUrl = ''; // 封面图
 
           // 设置 src 并自动播放
@@ -169,7 +169,7 @@ App({
    * 从云存储获取背景图的临时链接，保存到 globalData.bgImageUrl
    */
   setupBackgroundImage: function() {
-    const BG_FILE_ID = 'cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/merry Christmas.png';
+    const BG_FILE_ID = 'cloud://cloud1-3ge5gomsffe800a7.636c-cloud1-3ge5gomsffe800a7-1373366709/csfc_bg/足球.png';
     if (!wx.cloud || !wx.cloud.getTempFileURL) return;
     wx.cloud.getTempFileURL({
       fileList: [BG_FILE_ID],
